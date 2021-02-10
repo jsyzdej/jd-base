@@ -1,3 +1,5 @@
+## 不定期更新，readme都是E大以前留的，还没改
+
 ## 请仔细阅读 [WIKI](https://github.com/EvineDeng/jd-base/wiki) 和各文件注释，95%的问题都能找到答案
 
 ## 如有二次使用，请注明来源
