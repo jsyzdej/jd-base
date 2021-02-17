@@ -30,6 +30,7 @@ SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
 ScriptsURL=https://gitee.com/lxk0301/jd_scripts
+ShellURL=https://github.com/jsyzdej/jd-base
 
 ## 由于目前只有 gitee.com 一个渠道，故将下面几行注释掉
 # if [[ ${WhichDep} == *github* ]]; then
