@@ -29,7 +29,7 @@ ContentDropTask=${ShellDir}/drop_task
 SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
-ScriptsURL=https://gitee.com/lxk0301/jd_scripts
+ScriptsURL=git@gitee.com:lxk0301/jd_scripts.git
 ShellURL=https://github.com/jsyzdej/jd-base
 GIT_SSH_COMMAND="ssh -i ./git-key"
 
