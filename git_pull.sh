@@ -32,8 +32,6 @@ WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
 ScriptsURL=git@gitee.com:lxk0301/jd_scripts.git
 ShellURL=https://github.com/jsyzdej/jd-base
 
-chmod 600 ${ShellDir}/git-key
-
 ## 由于目前只有 gitee.com 一个渠道，故将下面几行注释掉
 # if [[ ${WhichDep} == *github* ]]; then
 #   ScriptsURL=https://github.com/LXK9301/jd_scripts
@@ -50,6 +48,7 @@ function Git_PullShell {
   git fetch --all
   ExitStatusShell=$?
   git reset --hard origin/v3
+  chmod 600 ${ShellDir}/git-key
 }
 
 ## 更新crontab
