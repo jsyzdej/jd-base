@@ -31,7 +31,6 @@ isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
 ScriptsURL=git@gitee.com:lxk0301/jd_scripts.git
 ShellURL=https://github.com/jsyzdej/jd-base
-GIT_SSH_COMMAND="ssh -i ${ShellDir}/git-key"
 
 ## 由于目前只有 gitee.com 一个渠道，故将下面几行注释掉
 # if [[ ${WhichDep} == *github* ]]; then
@@ -62,7 +61,7 @@ function Update_Cron {
 ## 克隆scripts
 function Git_CloneScripts {
   echo -e "克隆LXK9301脚本，原地址：${ScriptsURL}\n"
-  git clone -b master ${ScriptsURL} ${ScriptsDir}
+  GIT_SSH_COMMAND="ssh -i ${ShellDir}/git-key" git clone -b master ${ScriptsURL} ${ScriptsDir}
   ExitStatusScripts=$?
   echo
 }
@@ -71,9 +70,9 @@ function Git_CloneScripts {
 function Git_PullScripts {
   echo -e "更新LXK9301脚本，原地址：${ScriptsURL}\n"
   cd ${ScriptsDir}
-  git fetch --all
+  GIT_SSH_COMMAND="ssh -i ${ShellDir}/git-key" git fetch --all
   ExitStatusScripts=$?
-  git reset --hard origin/master
+  GIT_SSH_COMMAND="ssh -i ${ShellDir}/git-key" git reset --hard origin/master
   echo
 }
 
@@ -337,8 +336,8 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   echo -e "--------------------------------------------------------------\n"
   [ -f ${ScriptsDir}/package.json ] && PackageListOld=$(cat ${ScriptsDir}/package.json)
   [ -d ${ScriptsDir}/.git ] && Git_PullScripts || Git_CloneScripts
-  [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
-  cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
+#  [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
+#  cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
 fi
 
 ## 执行各函数
