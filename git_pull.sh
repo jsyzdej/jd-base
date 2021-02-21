@@ -31,7 +31,7 @@ isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
 ScriptsURL=git@gitee.com:lxk0301/jd_scripts.git
 ShellURL=https://github.com/jsyzdej/jd-base
-GIT_SSH_COMMAND="ssh -i ./git-key"
+GIT_SSH_COMMAND="ssh -i ${ShellDir}/git-key"
 
 ## 由于目前只有 gitee.com 一个渠道，故将下面几行注释掉
 # if [[ ${WhichDep} == *github* ]]; then
